@@ -19516,3 +19516,18 @@ a.action_button:hover{text-decoration:none}
 #Content.no-padding, .template-slider #Content, .with_aside #Content {
     padding-top: 0px !important;
 }
+footer.site-footer {
+	background-color: #e9eaea;
+	background-image: url(/investor/static/assets/img/footer-logo_2x.png);
+	background-position: 97% 54%;
+	background-position: calc(100% - 30px) 54%;
+	background-position: right 30px 54%;
+	background-size: 75px 18px;
+	background-repeat: no-repeat;
+	min-height: 90px;
+	text-align: right;
+  }
+  .no-canvas footer.site-footer {
+	background-image: url(/investor/static/assets/img/footer-logo.png);
+  }
+  
