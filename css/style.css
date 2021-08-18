@@ -1,0 +1,60 @@
+.footer {
+  padding: 1rem 1rem 1rem;
+}
+
+.defi-image {
+  height: 7em;
+  float: right;
+}
+
+.main {
+  /* min-height: 65vh; */
+  margin-top: 50px;
+}
+
+.right {
+  float: right;
+}
+
+.top-100 {
+  margin-top: 100px;
+}
+
+.about-text {
+  text-align: center;
+  padding: 1.5em 3em;
+}
+
+.title {
+  color: #636363;
+  padding: 1em;
+}
+
+ion-icon {
+  color: #00c9b6;
+}
+
+​.header-logo {
+  font-size: 35px !important;
+  font-weight: 700;
+  color: #00adff !important;
+}
+
+.navbar-link,
+a.navbar-item {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.minus-8 {
+  margin-bottom: -8px;
+}
+
+.title.is-2 {
+  font-size: 2rem;
+}

@@ -1,4 +1,0 @@
-(function() {
-  var a=document.documentElement,b=a.getAttribute("data-feature-detect").split(",");0<=b.indexOf("js")&&(a.className=a.className.replace(/\bgoogle\b/,"google-js"));0<=b.indexOf("svg")&&(window.aimSvgSupport=!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,a.className+=window.aimSvgSupport?" aim-svg":" aim-nosvg");
-if(0<=b.indexOf("flexbox")){for(var c="flexWrap WebkitFlexWrap MozFlexWrap OFlexWrap msFlexWrap boxDirection WebkitBoxDirection MozBoxDirection OBoxDirection msBoxDirection".split(" ");0<c.length&&void 0==a.style[c.shift()];);window.aimFlexSupport=0<c.length;a.className+=window.aimFlexSupport?" aim-flex":" aim-noflex"}a.removeAttribute("data-feature-detect");
-})();
