@@ -1,0 +1,100 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Activity, ArrowUpRight, ArrowDownRight, LineChart, Lock } from "lucide-react";
+
+export default function MarketsPage() {
+  return (
+    <div className="bg-[#0A0F15] min-h-screen pb-24">
+      {/* Hero */}
+      <section className="relative pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <Activity className="w-12 h-12 text-[#00E0C7] mb-6 animate-pulse" />
+          <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 text-[#F5F7FA]">
+            AXTG Market Intelligence
+          </h1>
+          <p className="text-lg md:text-xl text-[#94A3B8] max-w-2xl mx-auto leading-relaxed mb-8">
+             Live analytics for native crypto assets, tokenized RWAs, and AXTG corporate performance.
+          </p>
+          <button className="px-6 py-3 bg-[#121A24] border border-[#334155] rounded-lg text-[#F5F7FA] font-medium hover:border-[#00E0C7] transition-colors flex items-center shadow-lg">
+             <Lock className="w-4 h-4 mr-2 text-[#00E0C7]" /> Unlock Institutional App Dashboard
+          </button>
+        </div>
+      </section>
+
+      {/* Ticker Board */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Corporate AXTG Stock */}
+          <div className="bg-gradient-to-br from-[#0D141C] to-[#1A2332] border-2 border-[#1E293B] rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#00C2FF] transition-colors cursor-pointer">
+             <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#00C2FF] blur-3xl opacity-10 group-hover:opacity-30 transition-opacity" />
+             <div className="text-xs font-bold text-[#00C2FF] uppercase tracking-widest mb-4">Corporate OTC</div>
+             <div className="flex justify-between items-end mb-2">
+               <span className="text-2xl font-heading font-bold text-[#F5F7FA]">AXTG</span>
+               <span className="text-xs bg-[#0B0F14] px-2 py-1 rounded text-[#94A3B8]">OTC Markets</span>
+             </div>
+             <div className="text-4xl font-mono text-[#F5F7FA] mt-4 mb-2">$1.24</div>
+             <div className="flex items-center text-sm font-semibold text-[#00E0C7]">
+               <ArrowUpRight className="w-4 h-4 mr-1" /> +5.2% (1D)
+             </div>
+          </div>
+
+          {/* Crypto Assets */}
+          {[
+            { ticker: "BTC", name: "Bitcoin", price: "$64,230.50", change: "+2.4%", up: true },
+            { ticker: "ETH", name: "Ethereum", price: "$3,450.80", change: "-1.2%", up: false },
+            { ticker: "SOL", name: "Solana", price: "$145.20", change: "+5.1%", up: true },
+          ].map((asset, idx) => (
+            <motion.div 
+               key={asset.ticker}
+               initial={{ opacity: 0, y: 10 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: idx * 0.1 }}
+               className="bg-[#121A24] border border-[#1E293B] rounded-2xl p-6 shadow-lg"
+            >
+               <div className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-4">Crypto Native</div>
+               <div className="flex justify-between items-center mb-4">
+                 <span className="text-xl font-heading font-bold text-[#F5F7FA]">{asset.ticker}</span>
+                 <span className="text-xs text-[#94A3B8]">{asset.name}</span>
+               </div>
+               <div className="text-3xl font-mono text-[#F5F7FA] mb-2">{asset.price}</div>
+               <div className={`flex items-center text-sm font-semibold ${asset.up ? "text-[#00E0C7]" : "text-[#FF5C6C]"}`}>
+                 {asset.up ? <ArrowUpRight className="w-4 h-4 mr-1" /> : <ArrowDownRight className="w-4 h-4 mr-1" />} 
+                 {asset.change} (1D)
+               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* AI Research Feed mock */}
+        <h2 className="text-2xl font-bold font-heading text-[#F5F7FA] mb-8 flex items-center border-t border-[#1E293B] pt-12">
+          <LineChart className="w-6 h-6 mr-3 text-[#D4A64A]" /> AI Market Synthesis
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+           <div className="bg-[#0D141C] border border-[#1E293B] rounded-xl p-6">
+             <div className="text-[10px] bg-[#D4A64A]/10 text-[#D4A64A] px-2 py-1 rounded inline-block uppercase font-bold tracking-wider mb-4 border border-[#D4A64A]/20">Macro Analysis</div>
+             <h3 className="text-lg font-bold text-[#F5F7FA] mb-3">Treasury Yields Drive Stablecoin Demand</h3>
+             <p className="text-sm text-[#94A3B8] leading-relaxed">AXTG AI models detect a 15% WoW increase in institutional stablecoin minting correlates tightly with the 10-year Treasury note yield stabilization.</p>
+             <div className="mt-6 text-xs text-[#334155] font-mono">Generated by AXTG-MarketData</div>
+           </div>
+
+           <div className="bg-[#0D141C] border border-[#1E293B] rounded-xl p-6">
+             <div className="text-[10px] bg-[#00C2FF]/10 text-[#00C2FF] px-2 py-1 rounded inline-block uppercase font-bold tracking-wider mb-4 border border-[#00C2FF]/20">RWA Pulse</div>
+             <h3 className="text-lg font-bold text-[#F5F7FA] mb-3">Commercial Real Estate Tokenization Surges</h3>
+             <p className="text-sm text-[#94A3B8] leading-relaxed">Analysis of on-chain registries indicates $450M in new commercial real estate assets brought on-chain using ERC-3643 in Q3.</p>
+             <div className="mt-6 text-xs text-[#334155] font-mono">Generated by AXTG-MarketData</div>
+           </div>
+           
+           <div className="bg-[#121A24] border border-[#1E293B] border-dashed rounded-xl p-6 flex flex-col items-center justify-center text-center group cursor-pointer hover:border-[#00E0C7]/50 transition-colors">
+             <Lock className="w-8 h-8 text-[#334155] group-hover:text-[#00E0C7] transition-colors mb-4" />
+             <h3 className="text-sm font-semibold text-[#F5F7FA]">Access 50+ Real-Time Reports</h3>
+             <p className="text-xs text-[#94A3B8] mt-2 mb-4">Login to the dashboard required.</p>
+             <button className="text-xs text-[#00E0C7] underline underline-offset-4">Log In</button>
+           </div>
+        </div>
+
+      </section>
+    </div>
+  );
+}
